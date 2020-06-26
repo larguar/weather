@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="102px" height="100px" viewBox="0 0 102 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 5</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <path d="M76.1554116,33.2946147 C80.6452515,32.8055705 84.2208123,29.0027632 84.2208123,24.3431506 C84.2208123,20.1226996 81.28911,16.4641603 77.4002047,15.6704417 C76.335215,6.87498264 69.025275,0 60.1591051,0 C53.9236933,0 48.4580501,3.33625918 45.391376,8.39444281 C45.3155438,8.39297568 45.2401885,8.37194678 45.1638793,8.37194678 C38.5888918,8.37194678 33.2591743,14.0913181 33.2591743,20.8332807 C33.2591743,27.338546 38.221654,32.8055705 44.47662,33.2946147 L76.1554116,33.2946147 Z" id="path-2"></path>
+        <path d="M14.9476676,46.7195528 L51.2101366,46.7195528 C57.8723068,46.7195528 63.2990911,41.1233841 63.2990911,34.472784 C63.2990911,28.8766153 59.6243201,24.1998216 54.4561634,22.6757903 C54.3193168,17.6886146 50.1894367,13.7075474 45.1028858,13.7075474 C43.6245657,13.7075474 42.2316179,14.0662524 40.9880713,14.6684306 C38.7884818,9.51708081 33.625347,5.90710906 27.6059792,5.90710906 C21.0423637,5.90710906 15.4988205,10.2109487 13.7041211,16.1125432 C5.94592253,17.0374939 2.05603855e-13,23.4644455 2.05603855e-13,31.3708227 C2.05603855e-13,39.6544905 6.44371778,46.7195528 14.9476676,46.7195528" id="path-3"></path>
+        <filter x="-26.9%" y="-31.9%" width="153.7%" height="183.3%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-5" transform="translate(2.000000, 0.000000)">
+            <rect id="Rectangle" x="0" y="0" width="100" height="100"></rect>
+            <g id="icon_broken_clouds_day" transform="translate(8.000000, 27.000000)">
+                <g id="cloud">
+                    <use fill="#B8C7D8" xlink:href="#path-2"></use>
+                    <use fill-opacity="0.200000018" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                </g>
+                <g id="cloud">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

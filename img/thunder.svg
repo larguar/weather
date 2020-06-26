@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 7</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <path d="M67.1959514,29.3776012 C71.1575748,28.9460916 74.3124814,25.5906734 74.3124814,21.4792505 C74.3124814,17.7553232 71.7256853,14.5272003 68.2942982,13.8268603 C67.3546015,6.06616115 60.9046544,0 53.0815633,0 C47.5797294,0 42.757103,2.9437581 40.0512141,7.4068613 C39.9843033,7.40556677 39.9178133,7.38701186 39.8504817,7.38701186 C34.0490222,7.38701186 29.3463302,12.433516 29.3463302,18.3823065 C29.3463302,24.1222465 33.7249888,28.9460916 39.2440765,29.3776012 L67.1959514,29.3776012 Z" id="path-2"></path>
+        <path d="M13.1891185,41.2231348 L45.1854147,41.2231348 C51.0638001,41.2231348 55.8521392,36.2853389 55.8521392,30.4171623 C55.8521392,25.4793664 52.6096942,21.3527838 48.0495559,20.0080503 C47.9288089,15.6076011 44.2847971,12.0948948 39.7966639,12.0948948 C38.4922639,12.0948948 37.2631922,12.4113991 36.1659453,12.9427329 C34.225131,8.39742425 29.6694238,5.21215505 24.358217,5.21215505 C18.5667915,5.21215505 13.6754298,9.00966065 12.0918715,14.2169499 C5.24640224,15.0330829 0,20.7039225 0,27.6801376 C0,34.9892563 5.68563333,41.2231348 13.1891185,41.2231348" id="path-3"></path>
+        <filter x="-30.4%" y="-36.1%" width="160.9%" height="194.4%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-7">
+            <rect id="Rectangle" x="0" y="0" width="100" height="100"></rect>
+            <g id="icon_thunderstorm_day" transform="translate(13.000000, 25.000000)">
+                <g id="cloud">
+                    <use fill="#B8C7D8" xlink:href="#path-2"></use>
+                    <use fill-opacity="0.200000018" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                </g>
+                <g id="cloud">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                </g>
+                <polygon id="lightning" fill="#FCC02E" points="25.2039232 27.4822721 21.2997558 38.5504442 27.3991424 38.5504445 23.5808147 49.2785568 35.499593 34.0254116 28.9311174 33.8794398 31.218283 27.6292649"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

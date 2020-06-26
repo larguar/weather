@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 8</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <path d="M36.6278047,27.4190944 L62.7162213,27.4190944 C66.4137365,27.0163522 69.358316,23.8846285 69.358316,20.0473005 C69.358316,16.5716349 66.9439729,13.5587203 63.741345,12.9050696 C62.8642947,5.66175041 56.8443441,0 49.5427924,0 C44.4077474,0 39.9066295,2.74750756 37.3811332,6.91307055 C37.3186831,6.91186232 37.2566258,6.89454441 37.193783,6.89454441 C31.7790874,6.89454441 27.3899082,11.6046149 27.3899082,17.1568194 C27.3899082,22.5140967 31.4766562,27.0163522 36.6278047,27.4190944" id="path-2"></path>
+        <path d="M12.3098439,38.4749258 L42.1730537,38.4749258 C47.6595468,38.4749258 52.1286632,33.8663163 52.1286632,28.3893515 C52.1286632,23.780742 49.1023813,19.9292649 44.8462522,18.6741802 C44.733555,14.5670944 41.3324773,11.2885685 37.143553,11.2885685 C35.9261129,11.2885685 34.7789794,11.5839725 33.7548823,12.079884 C31.9434556,7.83759596 27.6914622,4.86467805 22.7343358,4.86467805 C17.3290054,4.86467805 12.7637345,8.4090166 11.2857468,13.2691532 C4.89664209,14.0308773 0,19.323661 0,25.8347951 C0,32.6566392 5.30659111,38.4749258 12.3098439,38.4749258" id="path-3"></path>
+        <filter x="-32.6%" y="-38.7%" width="165.2%" height="201.2%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-8">
+            <rect id="Rectangle" x="0" y="0" width="100" height="100"></rect>
+            <g id="icon_snow_day" transform="translate(15.000000, 22.000000)">
+                <g id="cloud">
+                    <use fill="#B6D6FA" xlink:href="#path-2"></use>
+                    <use fill-opacity="0.1" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                </g>
+                <g id="cloud">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                </g>
+                <circle id="Oval-2-Copy" fill="#FFFFFF" cx="59.8537234" cy="41.3297872" r="3.35106383"></circle>
+                <circle id="Oval-2-Copy-2" fill="#FFFFFF" cx="14.4281915" cy="53.2446809" r="3.35106383"></circle>
+                <circle id="Oval-2-Copy-3" fill="#FFFFFF" cx="32.4494681" cy="46.4867021" r="1.86170213"></circle>
+                <circle id="Oval-2-Copy-3" fill="#FFFFFF" cx="41.2367021" cy="54.3617021" r="1.86170213"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

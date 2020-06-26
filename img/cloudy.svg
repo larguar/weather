@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="105px" height="100px" viewBox="0 0 105 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 4</title>
+    <defs>
+        <filter x="-41.5%" y="-64.1%" width="183.1%" height="228.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.14 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4" transform="translate(2.000000, 0.000000)">
+            <rect id="Rectangle" x="0" y="0" width="100" height="100"></rect>
+            <g id="icon_scattered_clouds_night" filter="url(#filter-1)" transform="translate(18.000000, 29.000000)" fill="#FFFFFF">
+                <path d="M15.1334298,41.3196406 L51.8465509,41.3196406 C58.5915153,41.3196406 64.0857409,35.6539255 64.0857409,28.920675 C64.0857409,23.2549599 60.3653017,18.5200454 55.1329177,16.9770741 C54.9943704,11.9279203 50.8131662,7.89737837 45.6634022,7.89737837 C44.1667103,7.89737837 42.7564515,8.26054111 41.4974509,8.87020292 C39.2705259,3.6548347 34.0432262,0 27.9490527,0 C21.3038678,0 15.6914321,4.35732567 13.8744291,10.3322622 C6.01981552,11.2687078 0,17.7755304 0,25.7801641 C0,34.1667772 6.52379712,41.3196406 15.1334298,41.3196406" id="cloud"></path>
+            </g>
+        </g>
+    </g>
+</svg>
