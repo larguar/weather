@@ -116,15 +116,91 @@ input#search {
     bottom: 13px;
 }
 
-
-
-
-
-
-
-
-
-
+/* —————————— X –––––––––– */
+#content {
+    padding: 24px;
+}
+#weather {
+    padding: 60px;
+}
+div#forecast {
+    text-align: center;
+}
+img#icon {
+    margin-top: -20px;
+    margin-bottom: 10px;
+}
+div#date {
+    text-align: right;
+}
+.bar {
+    height: 8px;
+    width: 100%;
+    border-radius: 20px;
+    background-image: linear-gradient(90deg, #FCC737, #FF893F, #FF4F59, #9E7AD2);
+    overflow: hidden;
+    position: relative;
+}
+.status-bar {
+    content: " ";
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    transition: 0.5s ease;
+}
+#precipitation, #humidity {
+    margin: 0;
+}
+div#precipitation label {
+    padding: 0 5px;
+}
+#uv-index .icon, #wind-speed .icon {
+    padding: 0;
+    max-width: 60px;
+    max-height: 60px;
+}
+#uv-index .icon img, #wind-speed .icon img {
+    max-width: 100%;
+}
+.icon {
+    border-radius: 5px;
+}
+div#uv-index p, #wind-speed p {
+    margin: 0;
+}
+#uv-index .icon {
+    background: #FED460;
+}
+#wind-speed .icon {
+    background: #56749C;
+}
+div#temperature {
+    font-size: 40px;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+div#temperature span {
+    font-size: 80px;
+    margin-right: 6px;
+    font-weight: 300;
+    letter-spacing: -1px;
+}
+div#humidity {
+    margin-bottom: 60px;
+}
+div#precipitation {
+    margin-bottom: 20px;
+}
+div#location {
+    font-size: 24px;
+    line-height: 1.3;
+}
+div#country {
+    font-size: 17px;
+    margin-bottom: 90px;
+}
 
 @media (max-width: 991px) {
 

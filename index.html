@@ -18,9 +18,7 @@
 	
 <main class="container-fluid">
 	<div class="row">
-
-		<navigation id="nav" class="col">
-		
+		<navigation id="nav" class="col">		
 			<header class="row">
 				<h1 class="col">weather.</h1>
 				<button id="toggle" class="col"></button>
@@ -29,13 +27,66 @@
 			<form class="row">
 				<input id="search" class="form-control col-10" type="text" placeholder="Search">
 				<button type="submit" class="btn col"><i class="fa fa-search" aria-hidden="true"></i></button>	
-			</form>
+			</form>			
+		</navigation>		
+		<section id="content" class="col">
 			
-		</navigation>
-		
-		<section id="content" class="col p-4">
+			<article id="weather" class="jumbotron">
+				<div class="row">
+					<div id="forecast" class="col">
+						<img id="icon" src="img/rainy.svg" alt="rainy">
+						<div id="temperature"><span>86</span>°F</div>
+						<div id="location">Baltimore, Maryland</div>
+						<div id="country">United States</div>
+						<div id="feels-like">Feels Like: <span>99</span>°</div>
+					</div>
+					<div id="info" class="col-6 d-flex align-content-between flex-wrap">
+						<div id="date" class="w-100"><span id="day">Thursday</span> • <span id="time">11:23 AM</span></div>
+						<div id="details" class="w-100">
+							<div id="precipitation" class="row">
+								<label class="col-8">Precipitation</label>
+								<label class="col-4 text-right"><span>86</span>%</label>
+								<div class="bar col-12">
+									<div class="status-bar" data-percent="86"></div>
+								</div>
+							</div>
+							<div id="humidity" class="row">
+								<label class="col-8">Humidity</label>
+								<label class="col-4 text-right"><span>65</span>%</label>
+								<div class="bar col-12">
+									<div class="status-bar" data-percent="65"></div>
+								</div>
+							</div>
+							<div class="row m-0">
+								<div id="uv-index" class="col-6">
+									<div class="row">
+										<div class="col icon"><img src="img/sunny.svg"></div>
+										<div class="col num d-flex align-items-center"><p><span>11.32</span><br>UV Index</p></div>
+									</div>
+								</div>
+								<div id="wind-speed" class="col-6">
+									<div class="row">
+										<div class="col icon"><img src="img/wind.svg"></div>
+										<div class="col num d-flex align-items-center"><p><span>3.36 MPH</span><br>Wind Speed</p></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</article>
+			
+			<article id="five-day">
+				<div class="row">
+					<div class="col text-center">aadvfsdfbsdb</div>
+					<div class="col text-center">aadvfsdfbsdb</div>
+					<div class="col text-center">aadvfsdfbsdb</div>
+					<div class="col text-center">aadvfsdfbsdb</div>
+					<div class="col text-center">aadvfsdfbsdb</div>
+				</div>
+			</article>
+			
 		</section>
-
 	</div>
 </main>
 

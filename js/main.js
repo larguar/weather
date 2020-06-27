@@ -22,6 +22,14 @@ var nav = $('#nav');
 
 var toggle = $('#toggle').attr('style', 'opacity: 0.4');
 
+
+
+
+$('#precipitation .status-bar').attr('style', 'left: 86%');
+$('#humidity .status-bar').attr('style', 'left: 65%');
+
+
+
 // pull open/closed status from storage and add class to nav
 var navStatus = localStorage.getItem('Navigation');
 if (navStatus !== '') {
