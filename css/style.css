@@ -5,6 +5,127 @@ html {
   	scroll-behavior: smooth;
 	overflow-x: hidden;
 }
+body {
+	font-family: 'Rubik', sans-serif;
+}
+h1 {
+    font-size: 28px;
+    line-height: 1;
+    margin: 0;
+    font-weight: 500;
+    color: #fff;
+}
+button:focus, .btn:focus, input#search, input#search:focus, input#search:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+/* —————————— TOGGLE MENU –––––––––– */
+#nav {
+    max-width: 280px;
+    padding: 24px 15px;
+    transition: 0.3s ease;
+    background: #56749C;
+	height: 100vh;
+    overflow: scroll;
+}
+#nav.closed {
+    margin-left: -230px;
+}
+#nav header {
+    margin-bottom: 60px;
+}
+#toggle {
+    margin: 0 15px;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    max-width: 24px;
+    height: 28px;
+    opacity: 0;
+    transition: 0.1s ease;
+}
+#toggle:before, #toggle:after {
+    content: " ";
+    height: 2px;
+    width: 24px;
+    background: #fff;
+    position: absolute;
+    right: 0;
+}
+#toggle:before {
+    top: 8px;
+}
+#toggle:after {
+    bottom: 8px;
+}
+#nav label {
+    font-size: 14px;
+    color: #fff;
+    margin: 4px 4px 8px;
+    opacity: 0.8;
+    max-height: 21px;
+    overflow: hidden;
+}
+#nav form {
+    margin: 0 0 20px!important;
+    background: #fff;
+    border-radius: 2px;
+    max-height: 48px;
+    overflow: hidden;
+}
+#search, #nav form button {
+    border-radius: 0!important;
+    border: 0!important;
+    background: transparent!important;
+}
+input#search {
+    height: 48px;
+}
+#nav form button {
+    color: #ccc;
+}
+#search-list {
+    margin: 0px -15px;
+}
+#search-list .col-12 {
+    padding: 0;
+    margin: 0;
+}
+#search-list li {
+    padding: 16px 20px;
+    font-size: 17px;
+    line-height: 1.2;
+    color: #fff;
+}
+#search-list li.active, #search-list li:hover {
+    background-image: linear-gradient(90deg, rgba(255,255,255,0.4), transparent);
+}
+#nav label, #nav form, #search-list {
+    transition: 0.1s ease;
+}
+#nav.closed label, #nav.closed form, #nav.closed #search-list {
+	opacity: 0;
+}
+#nav.open #toggle:before {
+    transform: rotate(45deg);
+    top: 13px;
+}
+#nav.open #toggle:after {
+    transform: rotate(-45deg);
+    bottom: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 991px) {
 
 }
