@@ -491,6 +491,14 @@ $.ajax({
     jumbotronRow.append(dateOutput, forecastOutput, info, feelsLikeOutput);
     weatherJumbotron.append(jumbotronRow);
     content.append(weatherJumbotron);
+    
+    // create initial five day forecast elements
+    var fiveDayContainer = $('<article>').attr('id', 'five-day');
+    var fiveDayRow = $('<div>').addClass('row d-block text-center');
+    
+    // append initial five day forecast elements
+    fiveDayContainer.append(fiveDayRow);
+    content.append(fiveDayContainer);
       
 	// get latitude/longitude of search location      
 	var lat = response.coord.lat;
@@ -552,6 +560,13 @@ $.ajax({
 			// get weather icon description and icon
 			var weather = i.weather[0].main;
 			var icon = weatherImagery[weather].icon;
+			
+			var dayContainer = $('<div>').addClass('col text-center');
+			dayContainer.html('<div class="five-date">' + weekDay + '</div><img class="five-icon" src="' + icon + '" alt="' + weather + '"><div class="five-temp"><span class="high">' + high + '°</span> / <span class="low">' + low + '°</span></div>');
+			
+			fiveDayContainer.append(dayContainer);
+			
+			
 		
 			console.log('Day: ', weekDay);
 			console.log('Icon: ', icon);

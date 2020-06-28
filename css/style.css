@@ -224,9 +224,6 @@ article#weather > .row {
 div#date {
     position: absolute;
 }
-article#five-day .row > div {
-    margin-bottom: 32px;
-}
 
 #date, #feels-like, .five-date, .five-temp {
     font-weight: 500;
@@ -252,21 +249,16 @@ div#feels-like {
     bottom: 0;
     text-align: center;
 }
-
-
-@media (max-width: 1199px) {
-/*
-	div#humidity {
-	    margin-bottom: 30px;
-	}
-	div#uv-index {
-	    margin-bottom: 15px;
-	}
-	div#precipitation {
-	    margin-bottom: 15px;
-	}
-*/
+article#five-day {
+    text-align: center;
 }
+article#five-day .col {
+    width: 20%;
+    display: inline-block;
+    margin-bottom: 32px;
+}
+
+
 @media (max-width: 991px) {
 
 div#date {
@@ -287,6 +279,9 @@ div#feels-like {
 }
 #weather {
     padding: 40px 60px;
+}
+article#five-day .col {
+    width: 30%;
 }
 
 }
@@ -331,11 +326,14 @@ div#country {
 img.five-icon {
     max-width: 80px;
 }
-article#five-day .row > div {
+article#five-day .col {
     padding: 0;
 }
-article#five-day .row {
-    margin: 0 10px;
+article#five-day {
+    padding: 0 15px;
+}
+article#five-day .col {
+    width: 50%;
 }
 
 }
