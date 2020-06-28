@@ -472,14 +472,8 @@ jQuery(document).ready(function($) {
 			var wind = response.wind.speed.toFixed(1);
 			
 			// get wind %
-			var windMath = (wind * 100)/55;
+			var windMath = (wind * 100)/32;
 			
-			// get current day info
-			var today = moment();
-			var dayNum = moment().day();
-			var day = weekDays[dayNum];
-			var time = moment().format('h:mm a');
-		
 			// convert country code to full name
 			function getCountryName(countryCode) {
 			    if (isoCountries.hasOwnProperty(countryCode)) {
@@ -492,6 +486,12 @@ jQuery(document).ready(function($) {
 			if (country === undefined) {
 				country = 'The World';
 			}
+			
+			// get current day info
+			var today = moment();
+			var dayNum = today.day();
+			var day = weekDays[dayNum];
+			var time = today.format('h:mm a');
 			
 			
 		    // create and dynamically populate all weather jumbotron elements
@@ -521,7 +521,7 @@ jQuery(document).ready(function($) {
 			feelsLikeOutput.html('Feels Like: <span>' + feelsLike + '°</span>');
 			
 			// append all weather jumbotron elements
-		    details.append(humidityOutput, uvOutput, windOutput);
+		    details.append(uvOutput, windOutput, humidityOutput);
 		    info.append(details);
 		    jumbotronRow.append(dateOutput, forecastOutput, info, feelsLikeOutput);
 		    weatherJumbotron.append(jumbotronRow);
@@ -558,6 +558,16 @@ jQuery(document).ready(function($) {
 				$('#humidity .status-bar').attr('style', 'left: ' + humidity + '%');
 				$('#uv-index .status-bar').attr('style', 'left: ' + uvMath + '%');
 				$('#wind-speed .status-bar').attr('style', 'left: ' + windMath + '%');
+				
+				if (uv <= 2.99999) {
+					$('#uv-index span').attr('style', 'color: #FCC737');
+				} else if (uv >= 3 && uv <= 5.99999) {
+					$('#uv-index span').attr('style', 'color: #FF893F');
+				} else if (uv >= 6 && uv <= 7.99999) {
+					$('#uv-index span').attr('style', 'color: #FF4F59');
+				} else {
+					$('#uv-index span').attr('style', 'color: #9E7AD2');
+				}
 		   
 			});
 			
