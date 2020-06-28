@@ -26,8 +26,7 @@ button:focus, .btn:focus, input#search, input#search:focus, input#search:active 
     padding: 24px 15px;
     transition: 0.3s ease;
     background: #56749C;
-	height: 100vh;
-    overflow: scroll;
+	min-height: 100vh;
 }
 #nav.closed {
     margin-left: -230px;
@@ -128,7 +127,7 @@ div#forecast {
 }
 img#icon {
     margin-top: -20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 div#date {
     text-align: right;
@@ -153,7 +152,7 @@ div#date {
 #precipitation, #humidity {
     margin: 0;
 }
-div#precipitation label {
+div#precipitation label, #humidity label {
     padding: 0 5px;
 }
 #uv-index .icon, #wind-speed .icon {
@@ -194,14 +193,104 @@ div#precipitation {
     margin-bottom: 20px;
 }
 div#location {
-    font-size: 24px;
+    font-size: 32px;
     line-height: 1.3;
+    font-weight: 300;
 }
 div#country {
     font-size: 17px;
-    margin-bottom: 90px;
+    margin-bottom: 80px;
 }
 
+
+div#uv-index {
+    max-width: 178px;
+}
+
+article#weather {
+    background: url(../img/rain.png);
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    overflow: hidden;
+}
+article#weather:before {
+    content: " ";
+    background: rgba(39,44,59,0.9);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+div#temperature, div#location, div#country {
+	color: #fff;
+}
+div#temperature {
+    font-size: 40px;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+div#location {
+    opacity: 0.8;
+}
+div#country {
+	opacity: 0.6;
+}
+div#date {
+	color: rgba(255,255,255,0.4);
+}
+div#feels-like, span#day, #precipitation label, #humidity label, #details p {
+	color: rgba(255,255,255,0.6);
+}
+div#feels-like span, span#time {
+    color: #fff;
+}
+#precipitation label.text-right, #humidity label.text-right {
+    font-weight: 500;
+    color: #fff;
+}
+#details p span {
+    font-size: 22px;
+    color: #fff;
+    line-height: 1;
+}
+
+
+
+
+#date, #feels-like, .five-date, .five-temp {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.five-date {
+    color: #999;
+}
+.five-temp {
+	color: rgba(153,153,153,0.4);
+}
+.five-temp .high {
+	color: rgba(153,153,153,1);
+}
+.five-temp .low {
+	color: rgba(153,153,153,0.6);
+}
+
+
+@media (max-width: 1199px) {
+/*
+	div#humidity {
+	    margin-bottom: 30px;
+	}
+	div#uv-index {
+	    margin-bottom: 15px;
+	}
+	div#precipitation {
+	    margin-bottom: 15px;
+	}
+*/
+}
 @media (max-width: 991px) {
 
 }

@@ -36,14 +36,21 @@
 					<div id="forecast" class="col">
 						<img id="icon" src="img/rainy.svg" alt="rainy">
 						<div id="temperature"><span>86</span>°F</div>
-						<div id="location">Baltimore, Maryland</div>
+						<div id="location">Baltimore</div>
 						<div id="country">United States</div>
-						<div id="feels-like">Feels Like: <span>99</span>°</div>
+						<div id="feels-like">Feels Like: <span>99°</span></div>
 					</div>
-					<div id="info" class="col-6 d-flex align-content-between flex-wrap">
+					<div id="info" class="col-5 col-xl-7 d-flex align-content-between flex-wrap">
 						<div id="date" class="w-100"><span id="day">Thursday</span> • <span id="time">11:23 AM</span></div>
 						<div id="details" class="w-100">
-							<div id="precipitation" class="row">
+							<div id="humidity" class="row">
+								<label class="col-8">Humidity</label>
+								<label class="col-4 text-right"><span>65</span>%</label>
+								<div class="bar col-12">
+									<div class="status-bar" data-percent="65"></div>
+								</div>
+							</div>
+							<div id="uv-index" class="row">
 								<label class="col-8">Precipitation</label>
 								<label class="col-4 text-right"><span>86</span>%</label>
 								<div class="bar col-12">
@@ -57,20 +64,22 @@
 									<div class="status-bar" data-percent="65"></div>
 								</div>
 							</div>
+<!--
 							<div class="row m-0">
-								<div id="uv-index" class="col-6">
+								<div id="uv-index" class="col-12 col-xl-6">
 									<div class="row">
 										<div class="col icon"><img src="img/sunny.svg"></div>
 										<div class="col num d-flex align-items-center"><p><span>11.32</span><br>UV Index</p></div>
 									</div>
 								</div>
-								<div id="wind-speed" class="col-6">
+								<div id="wind-speed" class="col-12 col-xl-6">
 									<div class="row">
 										<div class="col icon"><img src="img/wind.svg"></div>
 										<div class="col num d-flex align-items-center"><p><span>3.36 MPH</span><br>Wind Speed</p></div>
 									</div>
 								</div>
 							</div>
+-->
 						</div>
 					</div>
 				</div>
@@ -78,11 +87,31 @@
 			
 			<article id="five-day">
 				<div class="row">
-					<div class="col text-center">aadvfsdfbsdb</div>
-					<div class="col text-center">aadvfsdfbsdb</div>
-					<div class="col text-center">aadvfsdfbsdb</div>
-					<div class="col text-center">aadvfsdfbsdb</div>
-					<div class="col text-center">aadvfsdfbsdb</div>
+					<div id="day-1" class="col text-center">
+						<div class="five-date">Friday</div>
+						<img class="five-icon" src="img/partial.svg" alt="partial">
+						<div class="five-temp"><span class="high">89°</span> / <span class="low">70°</span></div>
+					</div>
+					<div id="day-2" class="col text-center">
+						<div class="five-date">Friday</div>
+						<img class="five-icon" src="img/rainy.svg" alt="rainy">
+						<div class="five-temp"><span class="high">89°</span> / <span class="low">70°</span></div>
+					</div>
+					<div id="day-3" class="col text-center">
+						<div class="five-date">Friday</div>
+						<img class="icon" src="img/thunder.svg" alt="thunder">
+						<div class="five-temp"><span class="high">89°</span> / <span class="low">70°</span></div>
+					</div>
+					<div id="day-4" class="col text-center">
+						<div class="five-date">Friday</div>
+						<img class="icon" src="img/sunny.svg" alt="sunny">
+						<div class="five-temp"><span class="high">89°</span> / <span class="low">70°</span></div>
+					</div>
+					<div id="day-5" class="col text-center">
+						<div class="five-date">Friday</div>
+						<img class="icon" src="img/partial.svg" alt="partial">
+						<div class="five-temp"><span class="high">89°</span> / <span class="low">70°</span></div>
+					</div>
 				</div>
 			</article>
 			
@@ -100,6 +129,7 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/moment.min.js"></script>
 <script src="js/main.js"></script>
 
 </body>

@@ -1,34 +1,10 @@
-// 1. Sidebar
-
-// Functional input - submit on enter or by clicking the search icon
-
-// Search submit prepends to list under search bar
-
-// Save list to local storage to populate on refresh
-
-// Search submit triggers info on dashboard to update
-
-// Clicking an item in the sidebar triggers info on dashboard to update
-
-
-
-
-
-
-
-
 // create nav variable
 var nav = $('#nav');
 
+// page load animations
 var toggle = $('#toggle').attr('style', 'opacity: 0.4');
-
-
-
-
 $('#precipitation .status-bar').attr('style', 'left: 86%');
 $('#humidity .status-bar').attr('style', 'left: 65%');
-
-
 
 // pull open/closed status from storage and add class to nav
 var navStatus = localStorage.getItem('Navigation');
@@ -109,5 +85,458 @@ $('#nav form').on('submit', function(event) {
 		listArray.push(li.text());
 		localStorage.setItem('List Items', listArray);
 	}
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// country code to full name data
+var isoCountries = {
+	'AF' : 'Afghanistan',
+	'AX' : 'Aland Islands',
+	'AL' : 'Albania',
+	'DZ' : 'Algeria',
+	'AS' : 'American Samoa',
+	'AD' : 'Andorra',
+	'AO' : 'Angola',
+	'AI' : 'Anguilla',
+	'AQ' : 'Antarctica',
+	'AG' : 'Antigua And Barbuda',
+	'AR' : 'Argentina',
+	'AM' : 'Armenia',
+	'AW' : 'Aruba',
+	'AU' : 'Australia',
+	'AT' : 'Austria',
+	'AZ' : 'Azerbaijan',
+	'BS' : 'Bahamas',
+	'BH' : 'Bahrain',
+	'BD' : 'Bangladesh',
+	'BB' : 'Barbados',
+	'BY' : 'Belarus',
+	'BE' : 'Belgium',
+	'BZ' : 'Belize',
+	'BJ' : 'Benin',
+	'BM' : 'Bermuda',
+	'BT' : 'Bhutan',
+	'BO' : 'Bolivia',
+	'BA' : 'Bosnia And Herzegovina',
+	'BW' : 'Botswana',
+	'BV' : 'Bouvet Island',
+	'BR' : 'Brazil',
+	'IO' : 'British Indian Ocean Territory',
+	'BN' : 'Brunei Darussalam',
+	'BG' : 'Bulgaria',
+	'BF' : 'Burkina Faso',
+	'BI' : 'Burundi',
+	'KH' : 'Cambodia',
+	'CM' : 'Cameroon',
+	'CA' : 'Canada',
+	'CV' : 'Cape Verde',
+	'KY' : 'Cayman Islands',
+	'CF' : 'Central African Republic',
+	'TD' : 'Chad',
+	'CL' : 'Chile',
+	'CN' : 'China',
+	'CX' : 'Christmas Island',
+	'CC' : 'Cocos (Keeling) Islands',
+	'CO' : 'Colombia',
+	'KM' : 'Comoros',
+	'CG' : 'Congo',
+	'CD' : 'Congo, Democratic Republic',
+	'CK' : 'Cook Islands',
+	'CR' : 'Costa Rica',
+	'CI' : 'Cote D\'Ivoire',
+	'HR' : 'Croatia',
+	'CU' : 'Cuba',
+	'CY' : 'Cyprus',
+	'CZ' : 'Czech Republic',
+	'DK' : 'Denmark',
+	'DJ' : 'Djibouti',
+	'DM' : 'Dominica',
+	'DO' : 'Dominican Republic',
+	'EC' : 'Ecuador',
+	'EG' : 'Egypt',
+	'SV' : 'El Salvador',
+	'GQ' : 'Equatorial Guinea',
+	'ER' : 'Eritrea',
+	'EE' : 'Estonia',
+	'ET' : 'Ethiopia',
+	'FK' : 'Falkland Islands (Malvinas)',
+	'FO' : 'Faroe Islands',
+	'FJ' : 'Fiji',
+	'FI' : 'Finland',
+	'FR' : 'France',
+	'GF' : 'French Guiana',
+	'PF' : 'French Polynesia',
+	'TF' : 'French Southern Territories',
+	'GA' : 'Gabon',
+	'GM' : 'Gambia',
+	'GE' : 'Georgia',
+	'DE' : 'Germany',
+	'GH' : 'Ghana',
+	'GI' : 'Gibraltar',
+	'GR' : 'Greece',
+	'GL' : 'Greenland',
+	'GD' : 'Grenada',
+	'GP' : 'Guadeloupe',
+	'GU' : 'Guam',
+	'GT' : 'Guatemala',
+	'GG' : 'Guernsey',
+	'GN' : 'Guinea',
+	'GW' : 'Guinea-Bissau',
+	'GY' : 'Guyana',
+	'HT' : 'Haiti',
+	'HM' : 'Heard Island & Mcdonald Islands',
+	'VA' : 'Holy See (Vatican City State)',
+	'HN' : 'Honduras',
+	'HK' : 'Hong Kong',
+	'HU' : 'Hungary',
+	'IS' : 'Iceland',
+	'IN' : 'India',
+	'ID' : 'Indonesia',
+	'IR' : 'Iran, Islamic Republic Of',
+	'IQ' : 'Iraq',
+	'IE' : 'Ireland',
+	'IM' : 'Isle Of Man',
+	'IL' : 'Israel',
+	'IT' : 'Italy',
+	'JM' : 'Jamaica',
+	'JP' : 'Japan',
+	'JE' : 'Jersey',
+	'JO' : 'Jordan',
+	'KZ' : 'Kazakhstan',
+	'KE' : 'Kenya',
+	'KI' : 'Kiribati',
+	'KR' : 'Korea',
+	'KW' : 'Kuwait',
+	'KG' : 'Kyrgyzstan',
+	'LA' : 'Lao People\'s Democratic Republic',
+	'LV' : 'Latvia',
+	'LB' : 'Lebanon',
+	'LS' : 'Lesotho',
+	'LR' : 'Liberia',
+	'LY' : 'Libyan Arab Jamahiriya',
+	'LI' : 'Liechtenstein',
+	'LT' : 'Lithuania',
+	'LU' : 'Luxembourg',
+	'MO' : 'Macao',
+	'MK' : 'Macedonia',
+	'MG' : 'Madagascar',
+	'MW' : 'Malawi',
+	'MY' : 'Malaysia',
+	'MV' : 'Maldives',
+	'ML' : 'Mali',
+	'MT' : 'Malta',
+	'MH' : 'Marshall Islands',
+	'MQ' : 'Martinique',
+	'MR' : 'Mauritania',
+	'MU' : 'Mauritius',
+	'YT' : 'Mayotte',
+	'MX' : 'Mexico',
+	'FM' : 'Micronesia, Federated States Of',
+	'MD' : 'Moldova',
+	'MC' : 'Monaco',
+	'MN' : 'Mongolia',
+	'ME' : 'Montenegro',
+	'MS' : 'Montserrat',
+	'MA' : 'Morocco',
+	'MZ' : 'Mozambique',
+	'MM' : 'Myanmar',
+	'NA' : 'Namibia',
+	'NR' : 'Nauru',
+	'NP' : 'Nepal',
+	'NL' : 'Netherlands',
+	'AN' : 'Netherlands Antilles',
+	'NC' : 'New Caledonia',
+	'NZ' : 'New Zealand',
+	'NI' : 'Nicaragua',
+	'NE' : 'Niger',
+	'NG' : 'Nigeria',
+	'NU' : 'Niue',
+	'NF' : 'Norfolk Island',
+	'MP' : 'Northern Mariana Islands',
+	'NO' : 'Norway',
+	'OM' : 'Oman',
+	'PK' : 'Pakistan',
+	'PW' : 'Palau',
+	'PS' : 'Palestinian Territory, Occupied',
+	'PA' : 'Panama',
+	'PG' : 'Papua New Guinea',
+	'PY' : 'Paraguay',
+	'PE' : 'Peru',
+	'PH' : 'Philippines',
+	'PN' : 'Pitcairn',
+	'PL' : 'Poland',
+	'PT' : 'Portugal',
+	'PR' : 'Puerto Rico',
+	'QA' : 'Qatar',
+	'RE' : 'Reunion',
+	'RO' : 'Romania',
+	'RU' : 'Russian Federation',
+	'RW' : 'Rwanda',
+	'BL' : 'Saint Barthelemy',
+	'SH' : 'Saint Helena',
+	'KN' : 'Saint Kitts And Nevis',
+	'LC' : 'Saint Lucia',
+	'MF' : 'Saint Martin',
+	'PM' : 'Saint Pierre And Miquelon',
+	'VC' : 'Saint Vincent And Grenadines',
+	'WS' : 'Samoa',
+	'SM' : 'San Marino',
+	'ST' : 'Sao Tome And Principe',
+	'SA' : 'Saudi Arabia',
+	'SN' : 'Senegal',
+	'RS' : 'Serbia',
+	'SC' : 'Seychelles',
+	'SL' : 'Sierra Leone',
+	'SG' : 'Singapore',
+	'SK' : 'Slovakia',
+	'SI' : 'Slovenia',
+	'SB' : 'Solomon Islands',
+	'SO' : 'Somalia',
+	'ZA' : 'South Africa',
+	'GS' : 'South Georgia And Sandwich Isl.',
+	'ES' : 'Spain',
+	'LK' : 'Sri Lanka',
+	'SD' : 'Sudan',
+	'SR' : 'Suriname',
+	'SJ' : 'Svalbard And Jan Mayen',
+	'SZ' : 'Swaziland',
+	'SE' : 'Sweden',
+	'CH' : 'Switzerland',
+	'SY' : 'Syrian Arab Republic',
+	'TW' : 'Taiwan',
+	'TJ' : 'Tajikistan',
+	'TZ' : 'Tanzania',
+	'TH' : 'Thailand',
+	'TL' : 'Timor-Leste',
+	'TG' : 'Togo',
+	'TK' : 'Tokelau',
+	'TO' : 'Tonga',
+	'TT' : 'Trinidad And Tobago',
+	'TN' : 'Tunisia',
+	'TR' : 'Turkey',
+	'TM' : 'Turkmenistan',
+	'TC' : 'Turks And Caicos Islands',
+	'TV' : 'Tuvalu',
+	'UG' : 'Uganda',
+	'UA' : 'Ukraine',
+	'AE' : 'United Arab Emirates',
+	'GB' : 'United Kingdom',
+	'US' : 'United States',
+	'UM' : 'United States Outlying Islands',
+	'UY' : 'Uruguay',
+	'UZ' : 'Uzbekistan',
+	'VU' : 'Vanuatu',
+	'VE' : 'Venezuela',
+	'VN' : 'Viet Nam',
+	'VG' : 'Virgin Islands, British',
+	'VI' : 'Virgin Islands, U.S.',
+	'WF' : 'Wallis And Futuna',
+	'EH' : 'Western Sahara',
+	'YE' : 'Yemen',
+	'ZM' : 'Zambia',
+	'ZW' : 'Zimbabwe'
+};
+
+var weekDays = {
+	0: 'Sunday',
+	1: 'Monday',
+	2: 'Tuesday',
+	3: 'Wednesday',
+	4: 'Thursday',
+	5: 'Friday',
+	6: 'Saturday'
+};
+
+var weatherImagery = {
+	Clear: {
+		icon: '../img/sunny.svg',
+		image: '../img/clear-sky.png'
+	},
+	Clouds: {
+		icon: '../img/partial.svg',
+		image: '../img/scattered-clouds.png'
+	},
+	Squall: {
+		icon: '../img/broken.svg',
+		image: '../img/broken-clouds.png'
+	},
+	Drizzle: {
+		icon: '../img/rainy.svg',
+		image: '../img/shower-rain.png'
+	},
+	Rain: {
+		icon: '../img/rainy.svg',
+		image: '../img/rain.png'
+	},
+	Thunderstorm: {
+		icon: '../img/thunder.svg',
+		image: '../img/thunderstorm.png'
+	},
+	Tornado: {
+		icon: '../img/thunder.svg',
+		image: '../img/thunderstorm.png'
+	},
+	Snow: {
+		icon: '../img/snowy.svg',
+		image: '../img/snow.png'
+	},
+	Mist: {
+		icon: '../img/cloudy.svg',
+		image: '../img/mist.png'
+	},
+	Fog: {
+		icon: '../img/cloudy.svg',
+		image: '../img/mist.png'
+	},
+	Smoke: {
+		icon: '../img/cloudy.svg',
+		image: '../img/mist.png'
+	},
+	Haze: {
+		icon: '../img/cloudy.svg',
+		image: '../img/mist.png'
+	},
+	Dust: {
+		icon: '../img/cloudy.svg',
+		image: '../img/mist.png'
+	},
+	Sand: {
+		icon: '../img/cloudy.svg',
+		image: '../img/mist.png'
+	},
+	Ash: {
+		icon: '../img/cloudy.svg',
+		image: '../img/mist.png'
+	}
+}
+
+// get API key, search input value, and query URL
+var APIKey = 'a490091f7e6e08ff474d1e72a25fd630';
+var weatherFor = 'baltimore'
+var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + weatherFor + '&appid=' + APIKey;
+
+$.ajax({
+  url: queryURL,
+  method: "GET"
+}).then(function(response) {
+
+	// convert temp to fahrenheit  
+	var k = response.main.temp;
+	var temp = (k - 273.15) * 1.80 + 32;
+	temp = temp.toFixed(0);
+	
+	// convert 'feels like' temp to fahrenheit  
+	k = response.main.feels_like;
+	var feelsLike = (k - 273.15) * 1.80 + 32;
+	feelsLike = feelsLike.toFixed(0);
+	
+	// get weather icon description, location name, humidity %, and wind speed
+	var weather = response.weather[0].main;
+	var bgImage = weatherImagery[weather].image;
+	var icon = weatherImagery[weather].icon;
+	var name = response.name;
+	var humidity = response.main.humidity;
+	var wind = response.wind.speed;
+	
+	// get current day info
+	var today = moment();
+	var dayNum = moment().day();
+	var day = weekDays[dayNum];
+	var time = moment().format('h:mm a');
+
+	// convert country code to full name
+	function getCountryName (countryCode) {
+	    if (isoCountries.hasOwnProperty(countryCode)) {
+	        return isoCountries[countryCode];
+	    } else {
+	        return countryCode;
+	    }
+	}
+	var country = getCountryName(response.sys.country);
+	
+	console.log('Day: ', day);
+	console.log('Time: ', time);
+	console.log('Background Image: ', bgImage);
+	console.log('Icon: ', icon);
+	console.log('Icon Alt: ', weather);
+	console.log('Temp: ', temp);
+	console.log('Search Value: ', name);
+	console.log('State: ', country);
+	console.log('Feels Like: ', feelsLike);
+	console.log('Humidity: ', humidity);
+	console.log('Wind Speed: ', wind);
+      
+	// get latitude/longitude of search location      
+	var lat = response.coord.lat;
+	var lon = response.coord.lon;
+	
+	// get query URL for UV Index data
+	var uvURL = 'https://api.openweathermap.org/data/2.5/uvi?lat=' + lat + '&lon=' + lon + '&appid=' + APIKey;
+	
+	$.ajax({
+	  url: uvURL,
+	  method: "GET"
+	}).then(function(UV) {
+		console.log('UV Index: ', UV.value);
+		console.log('–––––');	    
+	});
+	
+	// get API key, search input value, and full query URL
+	var oneCallURL = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&cnt=5' + '&appid=' + APIKey;
+
+	$.ajax({
+	  url: oneCallURL,
+	  method: "GET"
+	}).then(function(oneCall) {	
+		
+		var daily = oneCall.daily;
+		var fiveDays = [daily[1], daily[2], daily[3], daily[4], daily[5]];
+		
+		fiveDays.forEach(function(i) {
+			
+			// convert high to fahrenheit  
+			k = i.temp.max;
+			var high = (k - 273.15) * 1.80 + 32;
+			high = high.toFixed(0);
+			
+			// convert low to fahrenheit  
+			k = i.temp.min;
+			var low = (k - 273.15) * 1.80 + 32;
+			low = low.toFixed(0);
+			
+			// get date and convert to day and time
+			var dt = i.dt;
+			var date = new Date(dt * 1000);
+			var weekDayNum = date.getDay();
+			var weekDay = weekDays[weekDayNum];
+			
+			var weather = i.weather[0].main;
+			var icon = weatherImagery[weather].icon;
+		
+			console.log('Day: ', weekDay);
+			console.log('Icon: ', icon);
+			console.log('Icon Alt: ', i.weather[0].main);
+			console.log('Temp High: ', high);
+			console.log('Temp Low: ', low);
+			console.log('–––––');
+			
+		});
+		
+	});
 
 });
