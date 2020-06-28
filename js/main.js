@@ -3,8 +3,11 @@ var nav = $('#nav');
 
 // page load animations
 var toggle = $('#toggle').attr('style', 'opacity: 0.4');
-$('#precipitation .status-bar').attr('style', 'left: 86%');
-$('#humidity .status-bar').attr('style', 'left: 65%');
+$('#humidity .status-bar').attr('style', 'left: 69%');
+var uvMath = (9.44 * 100)/12;
+$('#uv-index .status-bar').attr('style', 'left: ' + uvMath + '%');
+var windMath = (2.1 * 100)/75;
+$('#wind-speed .status-bar').attr('style', 'left: ' + windMath + '%');
 
 // pull open/closed status from storage and add class to nav
 var navStatus = localStorage.getItem('Navigation');
@@ -412,15 +415,15 @@ var weatherImagery = {
 		image: '../img/mist.png'
 	},
 	Dust: {
-		icon: '../img/cloudy.svg',
+		icon: '../img/broken.svg',
 		image: '../img/mist.png'
 	},
 	Sand: {
-		icon: '../img/cloudy.svg',
+		icon: '../img/broken.svg',
 		image: '../img/mist.png'
 	},
 	Ash: {
-		icon: '../img/cloudy.svg',
+		icon: '../img/broken.svg',
 		image: '../img/mist.png'
 	}
 }
