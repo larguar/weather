@@ -97,7 +97,10 @@ input#search {
     line-height: 1.2;
     color: #fff;
 }
-#search-list li.active, #search-list li:hover {
+#search-list li:hover {
+    background-image: linear-gradient(90deg, rgba(255,255,255,0.1), transparent);
+}
+#search-list li.active, #search-list li.active:hover {
     background-image: linear-gradient(90deg, rgba(255,255,255,0.4), transparent);
 }
 #nav label, #nav form, #search-list {
