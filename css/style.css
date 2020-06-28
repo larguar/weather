@@ -177,9 +177,8 @@ div#country {
     margin-bottom: 80px;
 }
 article#weather {
-    background: url(../img/rain.png);
-    background-size: cover;
-    background-position: center center;
+    background-size: cover!important;
+    background-position: center center!important;
     position: relative;
     overflow: hidden;
 }

@@ -1,13 +1,9 @@
 // create nav variable
 var nav = $('#nav');
+var content = $('#content');
 
 // page load animations
 var toggle = $('#toggle').attr('style', 'opacity: 0.4');
-$('#humidity .status-bar').attr('style', 'left: 69%');
-var uvMath = (9.44 * 100)/12;
-$('#uv-index .status-bar').attr('style', 'left: ' + uvMath + '%');
-var windMath = (2.1 * 100)/75;
-$('#wind-speed .status-bar').attr('style', 'left: ' + windMath + '%');
 
 // pull open/closed status from storage and add class to nav
 var navStatus = localStorage.getItem('Navigation');
@@ -90,21 +86,6 @@ $('#nav form').on('submit', function(event) {
 	}
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // country code to full name data
 var isoCountries = {
@@ -355,6 +336,7 @@ var isoCountries = {
 	'ZW' : 'Zimbabwe'
 };
 
+// week day number to week day name
 var weekDays = {
 	0: 'Sunday',
 	1: 'Monday',
@@ -365,66 +347,67 @@ var weekDays = {
 	6: 'Saturday'
 };
 
+// assign imagery to weather types
 var weatherImagery = {
 	Clear: {
-		icon: '../img/sunny.svg',
-		image: '../img/clear-sky.png'
+		icon: 'img/sunny.svg',
+		image: 'img/clear-sky.png'
 	},
 	Clouds: {
-		icon: '../img/partial.svg',
-		image: '../img/scattered-clouds.png'
+		icon: 'img/partial.svg',
+		image: 'img/scattered-clouds.png'
 	},
 	Squall: {
-		icon: '../img/broken.svg',
-		image: '../img/broken-clouds.png'
+		icon: 'img/broken.svg',
+		image: 'img/broken-clouds.png'
 	},
 	Drizzle: {
-		icon: '../img/rainy.svg',
-		image: '../img/shower-rain.png'
+		icon: 'img/rainy.svg',
+		image: 'img/shower-rain.png'
 	},
 	Rain: {
-		icon: '../img/rainy.svg',
-		image: '../img/rain.png'
+		icon: 'img/rainy.svg',
+		image: 'img/rain.png'
 	},
 	Thunderstorm: {
-		icon: '../img/thunder.svg',
-		image: '../img/thunderstorm.png'
+		icon: 'img/thunder.svg',
+		image: 'img/thunderstorm.png'
 	},
 	Tornado: {
-		icon: '../img/thunder.svg',
-		image: '../img/thunderstorm.png'
+		icon: 'img/thunder.svg',
+		image: 'img/thunderstorm.png'
 	},
 	Snow: {
-		icon: '../img/snowy.svg',
-		image: '../img/snow.png'
+		icon: 'img/snowy.svg',
+		image: 'img/snow.png'
 	},
 	Mist: {
-		icon: '../img/cloudy.svg',
-		image: '../img/mist.png'
+		icon: 'img/cloudy.svg',
+		image: 'img/mist.png'
 	},
 	Fog: {
-		icon: '../img/cloudy.svg',
-		image: '../img/mist.png'
+		icon: 'img/cloudy.svg',
+		image: 'img/mist.png'
 	},
 	Smoke: {
-		icon: '../img/cloudy.svg',
-		image: '../img/mist.png'
+		icon: 'img/cloudy.svg',
+		image: 'img/mist.png'
 	},
 	Haze: {
-		icon: '../img/cloudy.svg',
-		image: '../img/mist.png'
+		icon: 'img/cloudy.svg',
+		image: 'img/mist.png'
 	},
 	Dust: {
-		icon: '../img/broken.svg',
-		image: '../img/mist.png'
+		icon: 'img/broken.svg',
+		image: 'img/mist.png'
 	},
 	Sand: {
-		icon: '../img/broken.svg',
-		image: '../img/mist.png'
+		icon: 'img/broken.svg',
+		image: 'img/mist.png'
 	},
 	Ash: {
-		icon: '../img/broken.svg',
-		image: '../img/mist.png'
+		icon: 'img/broken.svg',
+		image: 'img/mist.png'
 	}
 }
 
@@ -454,7 +437,10 @@ $.ajax({
 	var icon = weatherImagery[weather].icon;
 	var name = response.name;
 	var humidity = response.main.humidity;
-	var wind = response.wind.speed;
+	var wind = response.wind.speed.toFixed(1);
+	
+	// get wind %
+	var windMath = (wind * 100)/55;
 	
 	// get current day info
 	var today = moment();
@@ -472,17 +458,39 @@ $.ajax({
 	}
 	var country = getCountryName(response.sys.country);
 	
-	console.log('Day: ', day);
-	console.log('Time: ', time);
-	console.log('Background Image: ', bgImage);
-	console.log('Icon: ', icon);
-	console.log('Icon Alt: ', weather);
-	console.log('Temp: ', temp);
-	console.log('Search Value: ', name);
-	console.log('State: ', country);
-	console.log('Feels Like: ', feelsLike);
-	console.log('Humidity: ', humidity);
-	console.log('Wind Speed: ', wind);
+	
+    // create and dynamically populate all weather jumbotron elements
+    var weatherJumbotron = $('<article>').addClass('jumbotron').attr('id', 'weather');
+    weatherJumbotron.attr('style', 'background: url(' + bgImage + ')');
+    var jumbotronRow = $('<div>').addClass('row');
+    
+    var dateOutput = $('<div>').addClass('col-12').attr('id', 'date');
+    dateOutput.html('<span id="day">' + day + '</span> • <span id="time">' + time + '</span>');
+    
+    var forecastOutput = $('<div>').addClass('col-lg-6').attr('id', 'forecast');
+    forecastOutput.html('<img id="icon" src="' + icon + '" alt="' + weather + '"><div id="temperature"><span>' + temp + '</span>°F</div><div id="location">' + name + '</div><div id="country">' + country + '</div>');
+		
+	var info = $('<div>').addClass('col-lg-6 d-flex align-items-end').attr('id', 'info');
+	var details = $('<div>').addClass('w-100').attr('id', 'details');
+	
+	var humidityOutput = $('<div>').addClass('row').attr('id', 'humidity');
+	humidityOutput.html('<label class="col">Humidity</label><label class="col-5 text-right"><span>' + humidity + '</span>%</label><div class="bar col-12"><div class="status-bar"></div></div>');
+	
+	var uvOutput = $('<div>').addClass('row').attr('id', 'uv-index');
+	uvOutput.html('<label class="col">UV Index</label><label class="col-5 text-right"><span></span></label><div class="bar col-12"><div class="status-bar"></div></div>');
+	
+	var windOutput = $('<div>').addClass('row').attr('id', 'wind-speed');
+	windOutput.html('<label class="col">Wind Speed</label><label class="col-5 text-right"><span>' + wind + '</span> MPH</label><div class="bar col-12"><div class="status-bar"></div></div>');
+	
+	var feelsLikeOutput = $('<div>').addClass('col-lg-6').attr('id', 'feels-like');
+	feelsLikeOutput.html('Feels Like: <span>' + feelsLike + '°</span>');
+	
+	// append all weather jumbotron elements
+    details.append(humidityOutput, uvOutput, windOutput);
+    info.append(details);
+    jumbotronRow.append(dateOutput, forecastOutput, info, feelsLikeOutput);
+    weatherJumbotron.append(jumbotronRow);
+    content.append(weatherJumbotron);
       
 	// get latitude/longitude of search location      
 	var lat = response.coord.lat;
@@ -495,8 +503,19 @@ $.ajax({
 	  url: uvURL,
 	  method: "GET"
 	}).then(function(UV) {
-		console.log('UV Index: ', UV.value);
-		console.log('–––––');	    
+		
+		// get uv index value and %
+		var uv = UV.value;
+		var uvMath = (uv * 100)/11;
+		
+		// add uv index to span
+		$('#uv-index span').text(UV.value);
+		
+		// animate status bar elements
+		$('#humidity .status-bar').attr('style', 'left: ' + humidity + '%');
+		$('#uv-index .status-bar').attr('style', 'left: ' + uvMath + '%');
+		$('#wind-speed .status-bar').attr('style', 'left: ' + windMath + '%');
+   
 	});
 	
 	// get API key, search input value, and full query URL
@@ -507,9 +526,11 @@ $.ajax({
 	  method: "GET"
 	}).then(function(oneCall) {	
 		
+		// shorten API path and create array of next 5 days
 		var daily = oneCall.daily;
 		var fiveDays = [daily[1], daily[2], daily[3], daily[4], daily[5]];
 		
+		// for each array element...
 		fiveDays.forEach(function(i) {
 			
 			// convert high to fahrenheit  
@@ -528,6 +549,7 @@ $.ajax({
 			var weekDayNum = date.getDay();
 			var weekDay = weekDays[weekDayNum];
 			
+			// get weather icon description and icon
 			var weather = i.weather[0].main;
 			var icon = weatherImagery[weather].icon;
 		
