@@ -329,6 +329,15 @@ div#country {
 #icon {
     max-width: 60px;
 }
+img.five-icon {
+    max-width: 80px;
+}
+article#five-day .row > div {
+    padding: 0;
+}
+article#five-day .row {
+    margin: 0 10px;
+}
 
 }
 @media screen and (max-width: 320px) {
