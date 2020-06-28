@@ -293,6 +293,8 @@ article#five-day .col {
 navigation#nav {
     position: fixed;
     z-index: 2;
+    overflow: scroll;
+    height: 100%;
 }
 section#content {
     margin-left: 50px;

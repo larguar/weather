@@ -481,7 +481,7 @@ jQuery(document).ready(function($) {
 			var time = moment().format('h:mm a');
 		
 			// convert country code to full name
-			function getCountryName (countryCode) {
+			function getCountryName(countryCode) {
 			    if (isoCountries.hasOwnProperty(countryCode)) {
 			        return isoCountries[countryCode];
 			    } else {
@@ -489,6 +489,9 @@ jQuery(document).ready(function($) {
 			    }
 			}
 			var country = getCountryName(response.sys.country);
+			if (country === undefined) {
+				country = 'The World';
+			}
 			
 			
 		    // create and dynamically populate all weather jumbotron elements
