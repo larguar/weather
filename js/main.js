@@ -4,16 +4,23 @@ jQuery(document).ready(function($) {
 	var nav = $('#nav');
 	var content = $('#content');
 	
-    var geoURL = 'https://api.ipgeolocation.io/ipgeo?apiKey=f2e4fb339e5e4b4b89909b61a2ba7609';
+	var lastSearch = localStorage.getItem('Last Search');
+	if (lastSearch !== '') {
+		populateWeather(lastSearch);
+	} else {
 	
-	$.ajax({
-	  url: geoURL,
-	  method: "GET"
-	}).then(function(response) {
-		var geolocation = response.city;
-		console.log(geolocation);
-		populateWeather(geolocation);	
-	});
+	    var geoURL = 'https://api.ipgeolocation.io/ipgeo?apiKey=f2e4fb339e5e4b4b89909b61a2ba7609';
+		
+		$.ajax({
+		  url: geoURL,
+		  method: "GET"
+		}).then(function(response) {
+			var geolocation = response.city;
+			console.log(geolocation);
+			populateWeather(geolocation);	
+		});
+	
+	}
 	
 	// country code to full name data
 	var isoCountries = {
@@ -404,7 +411,7 @@ jQuery(document).ready(function($) {
 	searchList.append(ul);
 	nav.append(searchList);
 	
-	// on search form submit...
+	// on nav li click...
 	$('#nav li').on('click', function() {
 		
 		// empty div each time so only 1 populates
@@ -413,6 +420,7 @@ jQuery(document).ready(function($) {
 		
 		// grab the search value, then empty the field
 		var location = $(this).addClass('active').text();
+		localStorage.setItem('Last Search', location);
 		populateWeather(location);
 	
 	});
@@ -434,6 +442,8 @@ jQuery(document).ready(function($) {
 			var li = $('<li>').text(search);
 			ul.prepend(li);
 			
+			localStorage.setItem('Last Search', li.text());
+			
 			// push new item to list array and send array to local storage
 			listArray.push(li.text());
 			localStorage.setItem('List Items', listArray);
@@ -452,6 +462,10 @@ jQuery(document).ready(function($) {
 		  url: queryURL,
 		  method: "GET"
 		}).then(function(response) {
+			
+			if (queryURL.statusCode === '404'){
+				console.log('404');
+			}
 		
 			// convert temp to fahrenheit  
 			var k = response.main.temp;
