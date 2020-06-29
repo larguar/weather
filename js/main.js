@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
 	var content = $('#content');
 	
 	var lastSearch = localStorage.getItem('Last Search');
-	if (lastSearch !== '') {
+	if (lastSearch !== null) {
 		populateWeather(lastSearch);
 	} else {
 	
