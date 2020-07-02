@@ -435,18 +435,9 @@ jQuery(document).ready(function($) {
 		// grab the search value, then empty the field
 		var search = $('#search').val();
 		populateWeather(search);
-		$('#search').val('');
 		
-		// if search has a value, prepend item to list
-		if (search !== '') {
-			var li = $('<li>').text(search);
-			ul.prepend(li);
-			
-			localStorage.setItem('Last Search', li.text());
-			
-			// push new item to list array and send array to local storage
-			listArray.push(li.text());
-			localStorage.setItem('List Items', listArray);
+		if (content.html() === '') {
+			return;
 		}
 	
 	});
@@ -462,10 +453,6 @@ jQuery(document).ready(function($) {
 		  url: queryURL,
 		  method: "GET"
 		}).then(function(response) {
-			
-			if (queryURL.statusCode === '404'){
-				console.log('404');
-			}
 		
 			// convert temp to fahrenheit  
 			var k = response.main.temp;
@@ -630,6 +617,20 @@ jQuery(document).ready(function($) {
 				});
 				
 			});
+			
+			// if search has a value, prepend item to list
+			if ($('#search').val() !== '') {
+				var li = $('<li>').text($('#search').val());
+				ul.prepend(li);
+				
+				localStorage.setItem('Last Search', li.text());
+				
+				// push new item to list array and send array to local storage
+				listArray.push(li.text());
+				localStorage.setItem('List Items', listArray);
+				
+				$('#search').val('');
+			}
 		
 		});
 	
