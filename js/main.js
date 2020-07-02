@@ -414,8 +414,10 @@ jQuery(document).ready(function($) {
 	// on nav li click...
 	$('#nav li').on('click', function() {
 		
-		// empty div each time so only 1 populates
+		// empty search if it has a value to prevent a li item prepending
 		$('#search').val('');
+		
+		// empty div each time so only 1 populates
 		content.html('');
 		$('#nav li').removeClass('active')
 		
