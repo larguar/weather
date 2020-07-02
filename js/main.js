@@ -416,6 +416,7 @@ jQuery(document).ready(function($) {
 		
 		// empty div each time so only 1 populates
 		content.html('');
+		$('#search').val('');
 		$('#nav li').removeClass('active')
 		
 		// grab the search value, then empty the field
