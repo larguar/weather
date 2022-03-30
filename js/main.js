@@ -9,7 +9,7 @@ jQuery(document).ready(function($) {
 		populateWeather(lastSearch);
 	} else {
 	
-	    var geoURL = 'https://api.ipgeolocation.io/ipgeo?apiKey=f2e4fb339e5e4b4b89909b61a2ba7609';
+	    var geoURL = 'https://api.ipgeolocation.io/ipgeo?apiKey=e4939eda19214104b9baa8c355f31e17';
 		
 		$.ajax({
 		  url: geoURL,
